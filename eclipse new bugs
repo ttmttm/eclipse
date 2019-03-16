@@ -1,0 +1,7 @@
+
+
+
+
+Console missing or not showing text
+Right click on in console -> Preferences... -> check Fixed width console. Now you have auto word wrap and everything shows ok. 
+Seems like Eclipse console have a limit on number of characters displayed in one line.
