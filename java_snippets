@@ -1,0 +1,82 @@
+
+#####read / convert an InputStream into a String in Java
+
+static String convertStreamToString(java.io.InputStream is) {
+    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+    return s.hasNext() ? s.next() : "";
+}
+
+
+#####ignore a specific field while parsing a JSON into map
+
+gson
+BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+  StringBuilder response = new StringBuilder();
+  String line;
+    JsonObject obj = new JsonParser().parse(reader).getAsJsonObject();
+
+jackson
+JSONObject jsonObject;
+        try {            
+            jsonObject = new JSONObject(jsonString1);
+            JSONArray jsonArray = new JSONArray(jsonObject.get("records").toString());            
+            JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+            jsonObject1.remove("attributes");
+            jsonObject.put("records", jsonObject1);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        
+##### java.lang.Iterable Interface Example   
+List<String> stringList = new ArrayList<>();
+stringList.add("a");
+stringList.add("b");
+stringList.add("c");
+	
+for (String s : stringList) {
+    System.out.println(s);
+}
+for (int i = 0; i < stringList.size(); i++) {
+ 
+    System.out.println(stringList [i]);
+}
+Iterator<String> iter = stringList.iterator();
+ 
+while (iter.hasNext()) {
+ 
+    System.out.println(iter.next());
+}
+
+#####REST CAlls 
+--FileNotFoundException while getting the InputStream object from HttpURLConnection
+Resolved: I could solve the problem after referring to an answer on SO itself.
+
+It seems HttpURLConnection always returns 404 response when connecting to a url with a non standard port.
+
+Adding these lines solved it
+
+con.setRequestProperty("User-Agent","Mozilla/5.0 ( compatible ) ");
+con.setRequestProperty("Accept","*/*");
+
+#####PRETTY PRINT XML
+ public static final void prettyPrint(Document xml) throws Exception {
+        Transformer tf = TransformerFactory.newInstance().newTransformer();
+        tf.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        tf.setOutputProperty(OutputKeys.INDENT, "yes");
+        Writer out = new StringWriter();
+        tf.transform(new DOMSource(xml), new StreamResult(out));
+        System.out.println(out.toString());
+    }
+    
+#####Pretty print json with Jackson
+
+ObjectMapper mapper = new ObjectMapper();
+Object jsonObject = mapper.readValue(json, Object.class);
+String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
+System.out.println(prettyJson);
+    
+
+
+
+
+
