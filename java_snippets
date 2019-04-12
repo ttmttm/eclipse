@@ -75,8 +75,18 @@ Object jsonObject = mapper.readValue(json, Object.class);
 String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
 System.out.println(prettyJson);
     
+#####How do I convert a String to an InputStream
+InputStream stream = new ByteArrayInputStream(exampleString.getBytes(StandardCharsets.UTF_8))
+#####Convert UTF-8 byte[] to string?
+string result = System.Text.Encoding.UTF8.GetString(byteArray); c#
 
-
-
+#####Java print ArrayList example
+System.out.println( Arrays.toString(aListDays.toArray()) ); //1  
+to remove [] use  Arrays.toString(aListDays.toArray()) .replaceAll("[\\[\\]]", "")
+aListDays.stream().forEach(System.out::println); //2
+Or you can use below given statement to print elements of ArrayList.
+System.out.println(
+        aListDays.stream().map(Object::toString).collect(Collectors.joining("\n"))
+    );
 
 
