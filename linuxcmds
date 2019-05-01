@@ -1,0 +1,6 @@
+Memory checks
+
+	$ps aux –sort -rss  - Lists all the process with memory usage
+	$ps aux –sort -rss | more  to find the top page. 
+	$ps -p <pid> v
+	$top -p <pid>
