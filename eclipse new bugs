@@ -5,3 +5,12 @@
 Console missing or not showing text
 Right click on in console -> Preferences... -> check Fixed width console. Now you have auto word wrap and everything shows ok. 
 Seems like Eclipse console have a limit on number of characters displayed in one line.
+
+Eclipse does not highlight matching variables
+Window -> Preferences -> Java -> Editor -> Mark Occurrences
+Select all options available there.
+Also go to:
+Preferences > General > Editors > Text Editors > Annotations
+Compare the settings for 'Occurrences' and 'Write Occurrences'
+Make sure that you don't have the 'Text as higlighted' option checked for one of them.
+
