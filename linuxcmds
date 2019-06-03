@@ -4,3 +4,5 @@ Memory checks
 	$ps aux –sort -rss | more  to find the top page. 
 	$ps -p <pid> v
 	$top -p <pid>
+run command in loop
+while true; do <your_command>; sleep <interval_in_seconds>; done
